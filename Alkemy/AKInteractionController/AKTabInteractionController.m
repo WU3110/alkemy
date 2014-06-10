@@ -37,7 +37,6 @@
 
 - (void)cancelInteractiveTransition
 {
-    NSLog(@"cancel transitioning to %ld", _tabBarController.selectedIndex);
     [super cancelInteractiveTransition];
     if (_scrollView)
     {
@@ -47,7 +46,6 @@
 
 - (void)finishInteractiveTransition
 {
-    NSLog(@"finish transitioning to %ld", _tabBarController.selectedIndex);
     [super finishInteractiveTransition];
     if (_scrollView)
     {
@@ -154,7 +152,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
                 
                 self.shouldComplete
                 = (rate > _requiredTranslationRate || fabs(vel) > _requiredVelocity);
-                NSLog(@"r=%f  v=%f", rate, vel);
             }
             break;
         }
