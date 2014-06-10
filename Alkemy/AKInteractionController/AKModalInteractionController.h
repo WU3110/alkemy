@@ -10,9 +10,13 @@
 
 @interface AKModalInteractionController : AKInteractionController
 
-@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecognizer;
+
+@property (nonatomic, assign) CGFloat requiredVelocity;
+@property (nonatomic, assign) CGFloat requiredTranslationRate;
 
 @property (nonatomic, weak) UIViewController *viewController;
+@property (nonatomic, weak) UIScrollView *scrollView;
 
 - (id)initWithViewController:(UIViewController *)viewController;
 

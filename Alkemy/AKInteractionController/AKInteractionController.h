@@ -10,6 +10,7 @@
 
 @interface AKInteractionController : UIPercentDrivenInteractiveTransition
 
+@property (nonatomic, assign) BOOL isEnabled;
 @property (nonatomic, assign) BOOL isActive;
 @property (nonatomic, assign) BOOL shouldComplete;
 

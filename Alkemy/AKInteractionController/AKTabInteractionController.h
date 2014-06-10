@@ -11,9 +11,14 @@
 @interface AKTabInteractionController : AKInteractionController
 <UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecognizer;
+
+@property (nonatomic, assign) CGFloat requiredVelocity;
+@property (nonatomic, assign) CGFloat requiredTranslationRate;
 
 @property (nonatomic, weak) UITabBarController *tabBarController;
+@property (nonatomic, weak) UIScrollView *scrollView;
+
 
 - (id)initWithTabBarController:(UITabBarController *)tabBarController;
 

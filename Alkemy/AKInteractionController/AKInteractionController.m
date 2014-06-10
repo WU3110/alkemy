@@ -18,7 +18,7 @@
     self = [super init];
     if (self)
     {
-        self.isActive = NO;
+        self.isEnabled = YES;
     }
     return self;
 }

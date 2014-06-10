@@ -25,42 +25,12 @@
     {
         self.tabBarController = tabBarController;
         
-        self.panGestureRecognizer
+        _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
         _panGestureRecognizer.delegate = self;
-
-        [tabBarController.selectedViewController.view addGestureRecognizer:_panGestureRecognizer];
-        
-        [_tabBarController addObserver:self
-                            forKeyPath:@"selectedViewController"
-                               options:NSKeyValueObservingOptionNew
-                               context:nil];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [_tabBarController removeObserver:self
-                           forKeyPath:@"selectedViewController"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if ([keyPath isEqualToString:@"selectedViewController"] )
-    {
-        [self replaceGestureRecognizer];
-    }
-}
-
-- (void)replaceGestureRecognizer
-{
-    [_panGestureRecognizer.view removeGestureRecognizer:_panGestureRecognizer];    
-    [_tabBarController.selectedViewController.view addGestureRecognizer:_panGestureRecognizer];
 }
 
 - (void)onGestureRecognized:(UIGestureRecognizer *)recognizer
@@ -90,7 +60,8 @@
 
                     [self updateInteractiveTransition:rate];
                     
-                    self.shouldComplete = (rate > 0.3 || fabs(vel) > 500);
+                    self.shouldComplete
+                    = (rate > _requiredTranslationRate || fabs(vel) > _requiredVelocity);
                 }
                 else
                 {
@@ -138,12 +109,6 @@
             break;
     }
     
-}
-
-- (void)finishInteractiveTransition
-{
-    [super finishInteractiveTransition];
-    [self replaceGestureRecognizer];
 }
 
 @end

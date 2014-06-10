@@ -23,10 +23,9 @@
     {
         self.viewController = viewController;
 
-        self.panGestureRecognizer
+        _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
-        [viewController.view addGestureRecognizer:_panGestureRecognizer];
 }
     return self;
 }
@@ -55,7 +54,8 @@
                 if (rate < 0) rate = 0;
 
                 [self updateInteractiveTransition:rate];
-                self.shouldComplete = (rate > 0.3 || vel > 500);
+                self.shouldComplete
+                = (rate > _requiredTranslationRate || vel > _requiredVelocity);
             }
             else
             {
