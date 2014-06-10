@@ -29,9 +29,48 @@
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
         _panGestureRecognizer.delegate = self;
+        _panGestureRecognizer.maximumNumberOfTouches = 1;
     }
     return self;
 }
+
+- (void)cancelInteractiveTransition
+{
+    [super cancelInteractiveTransition];
+    if (_scrollView)
+    {
+        _scrollView.panGestureRecognizer.enabled = YES;
+    }
+}
+
+- (void)finishInteractiveTransition
+{
+    [super finishInteractiveTransition];
+    if (_scrollView)
+    {
+        _scrollView.panGestureRecognizer.enabled = YES;
+    }
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([gestureRecognizer isEqual:_panGestureRecognizer])
+    {
+        if (gestureRecognizer.numberOfTouches == 0) return NO;
+        
+        CGPoint translation = [_panGestureRecognizer velocityInView:_tabBarController.view];
+        return fabs(translation.x) > fabs(translation.y);
+    }
+    
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
 
 - (void)onGestureRecognized:(UIGestureRecognizer *)recognizer
 {
@@ -43,6 +82,12 @@
             self.isActive = YES;
             _lastTranslationX = 0;
             _selectedIndexOnBegin = _tabBarController.selectedIndex;
+            
+            if (_scrollView)
+            {
+                _scrollView.panGestureRecognizer.enabled = NO;
+            }
+
             break;
         }
         case UIGestureRecognizerStateChanged:

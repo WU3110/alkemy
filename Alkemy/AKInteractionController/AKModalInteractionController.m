@@ -26,6 +26,7 @@
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
+        _panGestureRecognizer.maximumNumberOfTouches = 1;
 }
     return self;
 }
