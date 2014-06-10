@@ -25,6 +25,9 @@
     {
         self.tabBarController = tabBarController;
         
+        self.requiredTranslationRate = 0.5;
+        self.requiredVelocity = 500;
+
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];

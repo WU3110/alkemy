@@ -22,6 +22,9 @@
     if (self)
     {
         self.viewController = viewController;
+        
+        self.requiredTranslationRate = 0.5;
+        self.requiredVelocity = 500;
 
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
