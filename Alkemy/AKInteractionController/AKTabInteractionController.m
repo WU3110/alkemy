@@ -10,9 +10,7 @@
 
 @interface AKTabInteractionController ()
 
-@property (nonatomic, assign) CGFloat lastTranslationX;
-
-@property (nonatomic, assign) NSInteger selectedIndexOnBegin;
+@property (nonatomic, assign) BOOL isGoingRight;
 
 @end
 
@@ -27,7 +25,7 @@
         
         self.requiredTranslationRate = 0.5;
         self.requiredVelocity = 500;
-
+        
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
@@ -39,6 +37,7 @@
 
 - (void)cancelInteractiveTransition
 {
+    NSLog(@"cancel transitioning to %ld", _tabBarController.selectedIndex);
     [super cancelInteractiveTransition];
     if (_scrollView)
     {
@@ -48,6 +47,7 @@
 
 - (void)finishInteractiveTransition
 {
+    NSLog(@"finish transitioning to %ld", _tabBarController.selectedIndex);
     [super finishInteractiveTransition];
     if (_scrollView)
     {
@@ -78,19 +78,34 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 - (void)onGestureRecognized:(UIGestureRecognizer *)recognizer
 {
     UIPanGestureRecognizer *pgr = (UIPanGestureRecognizer *)recognizer;
-
+    
     switch (pgr.state) {
         case UIGestureRecognizerStateBegan:
         {
             self.isActive = YES;
-            _lastTranslationX = 0;
-            _selectedIndexOnBegin = _tabBarController.selectedIndex;
             
             if (_scrollView)
             {
                 _scrollView.panGestureRecognizer.enabled = NO;
             }
-
+            
+            CGFloat vel = [pgr velocityInView:_tabBarController.view].x;
+            if (vel > 0)
+            {
+                _isGoingRight = YES;
+                _tabBarController.selectedIndex--;
+            }
+            else if (vel < 0)
+            {
+                _isGoingRight = NO;
+                _tabBarController.selectedIndex++;
+            }
+            else
+            {
+                self.isActive = NO;
+            }
+            
+            
             break;
         }
         case UIGestureRecognizerStateChanged:
@@ -98,33 +113,48 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
             if (self.isActive)
             {
                 CGFloat translationX = [pgr translationInView:_tabBarController.view].x;
+                CGFloat vel = [pgr velocityInView:_tabBarController.view].x;
                 
-                if (translationX * _lastTranslationX > 0)
+                if (_isGoingRight)
                 {
-                    CGFloat rate = fabs(translationX)/_tabBarController.view.frame.size.width;
-                    CGFloat vel = [pgr velocityInView:_tabBarController.view].x;
-                    
-                    if (rate >= 1.0) rate = 0.99;
-
-                    [self updateInteractiveTransition:rate];
-                    
-                    self.shouldComplete
-                    = (rate > _requiredTranslationRate || fabs(vel) > _requiredVelocity);
+                    if (translationX < 0)
+                    {
+                        translationX = 0;
+                    }
                 }
                 else
                 {
-                    [self cancelInteractiveTransition];
                     if (translationX > 0)
                     {
-                        _tabBarController.selectedIndex = _selectedIndexOnBegin - 1;
-                    }
-                    else
-                    {
-                        _tabBarController.selectedIndex = _selectedIndexOnBegin + 1;
+                        translationX = 0;
                     }
                 }
                 
-                _lastTranslationX = translationX;
+                CGFloat rate = fabs(translationX)/_tabBarController.view.frame.size.width;
+                
+                if (1.0 <= rate) rate = 0.99;
+                if (rate <= 0) rate = 0.01;
+                
+                [self updateInteractiveTransition:rate];
+                
+                if (_isGoingRight)
+                {
+                    if (vel < 0)
+                    {
+                        vel = 0;
+                    }
+                }
+                else
+                {
+                    if (0 < vel)
+                    {
+                        vel = 0;
+                    }
+                }
+                
+                self.shouldComplete
+                = (rate > _requiredTranslationRate || fabs(vel) > _requiredVelocity);
+                NSLog(@"r=%f  v=%f", rate, vel);
             }
             break;
         }
