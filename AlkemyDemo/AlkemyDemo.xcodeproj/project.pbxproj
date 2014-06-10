@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		151E40171946F2ED005219AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E40161946F2ED005219AF /* Foundation.framework */; };
+		151E40191946F2ED005219AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E40181946F2ED005219AF /* CoreGraphics.framework */; };
+		151E401B1946F2ED005219AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E401A1946F2ED005219AF /* UIKit.framework */; };
+		151E40211946F2ED005219AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 151E401F1946F2ED005219AF /* InfoPlist.strings */; };
+		151E40231946F2ED005219AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40221946F2ED005219AF /* main.m */; };
+		151E40271946F2ED005219AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40261946F2ED005219AF /* AppDelegate.m */; };
+		151E402A1946F2ED005219AF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151E40281946F2ED005219AF /* Main_iPhone.storyboard */; };
+		151E402D1946F2ED005219AF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151E402B1946F2ED005219AF /* Main_iPad.storyboard */; };
+		151E40301946F2ED005219AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E402F1946F2ED005219AF /* ViewController.m */; };
+		151E40321946F2ED005219AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151E40311946F2ED005219AF /* Images.xcassets */; };
+		151E40391946F2ED005219AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E40381946F2ED005219AF /* XCTest.framework */; };
+		151E403A1946F2ED005219AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E40161946F2ED005219AF /* Foundation.framework */; };
+		151E403B1946F2ED005219AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E401A1946F2ED005219AF /* UIKit.framework */; };
+		151E40431946F2ED005219AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 151E40411946F2ED005219AF /* InfoPlist.strings */; };
+		151E40451946F2ED005219AF /* AlkemyDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40441946F2ED005219AF /* AlkemyDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		151E403C1946F2ED005219AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 151E400B1946F2ED005219AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 151E40121946F2ED005219AF;
+			remoteInfo = AlkemyDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		151E40131946F2ED005219AF /* AlkemyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlkemyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		151E40161946F2ED005219AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		151E40181946F2ED005219AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		151E401A1946F2ED005219AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		151E401E1946F2ED005219AF /* AlkemyDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlkemyDemo-Info.plist"; sourceTree = "<group>"; };
+		151E40201946F2ED005219AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		151E40221946F2ED005219AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		151E40241946F2ED005219AF /* AlkemyDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlkemyDemo-Prefix.pch"; sourceTree = "<group>"; };
+		151E40251946F2ED005219AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		151E40261946F2ED005219AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		151E40291946F2ED005219AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		151E402C1946F2ED005219AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		151E402E1946F2ED005219AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		151E402F1946F2ED005219AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		151E40311946F2ED005219AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		151E40371946F2ED005219AF /* AlkemyDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlkemyDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		151E40381946F2ED005219AF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		151E40401946F2ED005219AF /* AlkemyDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlkemyDemoTests-Info.plist"; sourceTree = "<group>"; };
+		151E40421946F2ED005219AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		151E40441946F2ED005219AF /* AlkemyDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlkemyDemoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		151E40101946F2ED005219AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E40191946F2ED005219AF /* CoreGraphics.framework in Frameworks */,
+				151E401B1946F2ED005219AF /* UIKit.framework in Frameworks */,
+				151E40171946F2ED005219AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		151E40341946F2ED005219AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E40391946F2ED005219AF /* XCTest.framework in Frameworks */,
+				151E403B1946F2ED005219AF /* UIKit.framework in Frameworks */,
+				151E403A1946F2ED005219AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		151E400A1946F2ED005219AF = {
+			isa = PBXGroup;
+			children = (
+				151E401C1946F2ED005219AF /* AlkemyDemo */,
+				151E403E1946F2ED005219AF /* AlkemyDemoTests */,
+				151E40151946F2ED005219AF /* Frameworks */,
+				151E40141946F2ED005219AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		151E40141946F2ED005219AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				151E40131946F2ED005219AF /* AlkemyDemo.app */,
+				151E40371946F2ED005219AF /* AlkemyDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		151E40151946F2ED005219AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				151E40161946F2ED005219AF /* Foundation.framework */,
+				151E40181946F2ED005219AF /* CoreGraphics.framework */,
+				151E401A1946F2ED005219AF /* UIKit.framework */,
+				151E40381946F2ED005219AF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		151E401C1946F2ED005219AF /* AlkemyDemo */ = {
+			isa = PBXGroup;
+			children = (
+				151E40251946F2ED005219AF /* AppDelegate.h */,
+				151E40261946F2ED005219AF /* AppDelegate.m */,
+				151E40281946F2ED005219AF /* Main_iPhone.storyboard */,
+				151E402B1946F2ED005219AF /* Main_iPad.storyboard */,
+				151E402E1946F2ED005219AF /* ViewController.h */,
+				151E402F1946F2ED005219AF /* ViewController.m */,
+				151E40311946F2ED005219AF /* Images.xcassets */,
+				151E401D1946F2ED005219AF /* Supporting Files */,
+			);
+			path = AlkemyDemo;
+			sourceTree = "<group>";
+		};
+		151E401D1946F2ED005219AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				151E401E1946F2ED005219AF /* AlkemyDemo-Info.plist */,
+				151E401F1946F2ED005219AF /* InfoPlist.strings */,
+				151E40221946F2ED005219AF /* main.m */,
+				151E40241946F2ED005219AF /* AlkemyDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		151E403E1946F2ED005219AF /* AlkemyDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				151E40441946F2ED005219AF /* AlkemyDemoTests.m */,
+				151E403F1946F2ED005219AF /* Supporting Files */,
+			);
+			path = AlkemyDemoTests;
+			sourceTree = "<group>";
+		};
+		151E403F1946F2ED005219AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				151E40401946F2ED005219AF /* AlkemyDemoTests-Info.plist */,
+				151E40411946F2ED005219AF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		151E40121946F2ED005219AF /* AlkemyDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 151E40481946F2ED005219AF /* Build configuration list for PBXNativeTarget "AlkemyDemo" */;
+			buildPhases = (
+				151E400F1946F2ED005219AF /* Sources */,
+				151E40101946F2ED005219AF /* Frameworks */,
+				151E40111946F2ED005219AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlkemyDemo;
+			productName = AlkemyDemo;
+			productReference = 151E40131946F2ED005219AF /* AlkemyDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		151E40361946F2ED005219AF /* AlkemyDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 151E404B1946F2ED005219AF /* Build configuration list for PBXNativeTarget "AlkemyDemoTests" */;
+			buildPhases = (
+				151E40331946F2ED005219AF /* Sources */,
+				151E40341946F2ED005219AF /* Frameworks */,
+				151E40351946F2ED005219AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				151E403D1946F2ED005219AF /* PBXTargetDependency */,
+			);
+			name = AlkemyDemoTests;
+			productName = AlkemyDemoTests;
+			productReference = 151E40371946F2ED005219AF /* AlkemyDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		151E400B1946F2ED005219AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = TomokiNakamaru;
+				TargetAttributes = {
+					151E40361946F2ED005219AF = {
+						TestTargetID = 151E40121946F2ED005219AF;
+					};
+				};
+			};
+			buildConfigurationList = 151E400E1946F2ED005219AF /* Build configuration list for PBXProject "AlkemyDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 151E400A1946F2ED005219AF;
+			productRefGroup = 151E40141946F2ED005219AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				151E40121946F2ED005219AF /* AlkemyDemo */,
+				151E40361946F2ED005219AF /* AlkemyDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		151E40111946F2ED005219AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E402D1946F2ED005219AF /* Main_iPad.storyboard in Resources */,
+				151E40321946F2ED005219AF /* Images.xcassets in Resources */,
+				151E402A1946F2ED005219AF /* Main_iPhone.storyboard in Resources */,
+				151E40211946F2ED005219AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		151E40351946F2ED005219AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E40431946F2ED005219AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		151E400F1946F2ED005219AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E40301946F2ED005219AF /* ViewController.m in Sources */,
+				151E40271946F2ED005219AF /* AppDelegate.m in Sources */,
+				151E40231946F2ED005219AF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		151E40331946F2ED005219AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				151E40451946F2ED005219AF /* AlkemyDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		151E403D1946F2ED005219AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 151E40121946F2ED005219AF /* AlkemyDemo */;
+			targetProxy = 151E403C1946F2ED005219AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		151E401F1946F2ED005219AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				151E40201946F2ED005219AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		151E40281946F2ED005219AF /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				151E40291946F2ED005219AF /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		151E402B1946F2ED005219AF /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				151E402C1946F2ED005219AF /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		151E40411946F2ED005219AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				151E40421946F2ED005219AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		151E40461946F2ED005219AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		151E40471946F2ED005219AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		151E40491946F2ED005219AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlkemyDemo/AlkemyDemo-Prefix.pch";
+				INFOPLIST_FILE = "AlkemyDemo/AlkemyDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		151E404A1946F2ED005219AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlkemyDemo/AlkemyDemo-Prefix.pch";
+				INFOPLIST_FILE = "AlkemyDemo/AlkemyDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		151E404C1946F2ED005219AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlkemyDemo.app/AlkemyDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlkemyDemo/AlkemyDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AlkemyDemoTests/AlkemyDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		151E404D1946F2ED005219AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AlkemyDemo.app/AlkemyDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlkemyDemo/AlkemyDemo-Prefix.pch";
+				INFOPLIST_FILE = "AlkemyDemoTests/AlkemyDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		151E400E1946F2ED005219AF /* Build configuration list for PBXProject "AlkemyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				151E40461946F2ED005219AF /* Debug */,
+				151E40471946F2ED005219AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		151E40481946F2ED005219AF /* Build configuration list for PBXNativeTarget "AlkemyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				151E40491946F2ED005219AF /* Debug */,
+				151E404A1946F2ED005219AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		151E404B1946F2ED005219AF /* Build configuration list for PBXNativeTarget "AlkemyDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				151E404C1946F2ED005219AF /* Debug */,
+				151E404D1946F2ED005219AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 151E400B1946F2ED005219AF /* Project object */;
+}
