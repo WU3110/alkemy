@@ -22,6 +22,19 @@
 		151E403B1946F2ED005219AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E401A1946F2ED005219AF /* UIKit.framework */; };
 		151E40431946F2ED005219AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 151E40411946F2ED005219AF /* InfoPlist.strings */; };
 		151E40451946F2ED005219AF /* AlkemyDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40441946F2ED005219AF /* AlkemyDemoTests.m */; };
+		151E40721946F3F0005219AF /* AKAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40521946F3EF005219AF /* AKAnimationController.m */; };
+		151E40731946F3F0005219AF /* AKModalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40541946F3F0005219AF /* AKModalAnimationController.m */; };
+		151E40741946F3F0005219AF /* AKNavigationAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40561946F3F0005219AF /* AKNavigationAnimationController.m */; };
+		151E40751946F3F0005219AF /* AKTabAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40581946F3F0005219AF /* AKTabAnimationController.m */; };
+		151E40761946F3F0005219AF /* AKDynamicLoadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E405B1946F3F0005219AF /* AKDynamicLoadHelper.m */; };
+		151E40771946F3F0005219AF /* AKForkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E405E1946F3F0005219AF /* AKForkViewController.m */; };
+		151E40781946F3F0005219AF /* AKHighlightableCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40611946F3F0005219AF /* AKHighlightableCollectionCell.m */; };
+		151E40791946F3F0005219AF /* AKHighlightableTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40631946F3F0005219AF /* AKHighlightableTableCell.m */; };
+		151E407A1946F3F0005219AF /* AKInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40661946F3F0005219AF /* AKInteractionController.m */; };
+		151E407B1946F3F0005219AF /* AKModalInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40681946F3F0005219AF /* AKModalInteractionController.m */; };
+		151E407C1946F3F0005219AF /* AKTabInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E406A1946F3F0005219AF /* AKTabInteractionController.m */; };
+		151E407D1946F3F0005219AF /* AKSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E406D1946F3F0005219AF /* AKSimpleWebViewController.m */; };
+		151E407E1946F3F0005219AF /* AKSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40701946F3F0005219AF /* AKSwitchButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +68,32 @@
 		151E40401946F2ED005219AF /* AlkemyDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AlkemyDemoTests-Info.plist"; sourceTree = "<group>"; };
 		151E40421946F2ED005219AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		151E40441946F2ED005219AF /* AlkemyDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlkemyDemoTests.m; sourceTree = "<group>"; };
+		151E40511946F3EF005219AF /* AKAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAnimationController.h; sourceTree = "<group>"; };
+		151E40521946F3EF005219AF /* AKAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAnimationController.m; sourceTree = "<group>"; };
+		151E40531946F3F0005219AF /* AKModalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKModalAnimationController.h; sourceTree = "<group>"; };
+		151E40541946F3F0005219AF /* AKModalAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKModalAnimationController.m; sourceTree = "<group>"; };
+		151E40551946F3F0005219AF /* AKNavigationAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNavigationAnimationController.h; sourceTree = "<group>"; };
+		151E40561946F3F0005219AF /* AKNavigationAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNavigationAnimationController.m; sourceTree = "<group>"; };
+		151E40571946F3F0005219AF /* AKTabAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabAnimationController.h; sourceTree = "<group>"; };
+		151E40581946F3F0005219AF /* AKTabAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTabAnimationController.m; sourceTree = "<group>"; };
+		151E405A1946F3F0005219AF /* AKDynamicLoadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDynamicLoadHelper.h; sourceTree = "<group>"; };
+		151E405B1946F3F0005219AF /* AKDynamicLoadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDynamicLoadHelper.m; sourceTree = "<group>"; };
+		151E405D1946F3F0005219AF /* AKForkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKForkViewController.h; sourceTree = "<group>"; };
+		151E405E1946F3F0005219AF /* AKForkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKForkViewController.m; sourceTree = "<group>"; };
+		151E40601946F3F0005219AF /* AKHighlightableCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHighlightableCollectionCell.h; sourceTree = "<group>"; };
+		151E40611946F3F0005219AF /* AKHighlightableCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHighlightableCollectionCell.m; sourceTree = "<group>"; };
+		151E40621946F3F0005219AF /* AKHighlightableTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHighlightableTableCell.h; sourceTree = "<group>"; };
+		151E40631946F3F0005219AF /* AKHighlightableTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHighlightableTableCell.m; sourceTree = "<group>"; };
+		151E40651946F3F0005219AF /* AKInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKInteractionController.h; sourceTree = "<group>"; };
+		151E40661946F3F0005219AF /* AKInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKInteractionController.m; sourceTree = "<group>"; };
+		151E40671946F3F0005219AF /* AKModalInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKModalInteractionController.h; sourceTree = "<group>"; };
+		151E40681946F3F0005219AF /* AKModalInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKModalInteractionController.m; sourceTree = "<group>"; };
+		151E40691946F3F0005219AF /* AKTabInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabInteractionController.h; sourceTree = "<group>"; };
+		151E406A1946F3F0005219AF /* AKTabInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTabInteractionController.m; sourceTree = "<group>"; };
+		151E406C1946F3F0005219AF /* AKSimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSimpleWebViewController.h; sourceTree = "<group>"; };
+		151E406D1946F3F0005219AF /* AKSimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKSimpleWebViewController.m; sourceTree = "<group>"; };
+		151E406F1946F3F0005219AF /* AKSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSwitchButton.h; sourceTree = "<group>"; };
+		151E40701946F3F0005219AF /* AKSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKSwitchButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +123,7 @@
 		151E400A1946F2ED005219AF = {
 			isa = PBXGroup;
 			children = (
+				151E404E1946F3EF005219AF /* Alkemy */,
 				151E401C1946F2ED005219AF /* AlkemyDemo */,
 				151E403E1946F2ED005219AF /* AlkemyDemoTests */,
 				151E40151946F2ED005219AF /* Frameworks */,
@@ -153,6 +193,96 @@
 				151E40411946F2ED005219AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		151E404E1946F3EF005219AF /* Alkemy */ = {
+			isa = PBXGroup;
+			children = (
+				151E40501946F3EF005219AF /* AKAnimationController */,
+				151E40591946F3F0005219AF /* AKDynamicLoadHelper */,
+				151E405C1946F3F0005219AF /* AKForkViewController */,
+				151E405F1946F3F0005219AF /* AKHighlightableCell */,
+				151E40641946F3F0005219AF /* AKInteractionController */,
+				151E406B1946F3F0005219AF /* AKSimpleWebViewController */,
+				151E406E1946F3F0005219AF /* AKSwitchButton */,
+			);
+			name = Alkemy;
+			path = ../Alkemy;
+			sourceTree = "<group>";
+		};
+		151E40501946F3EF005219AF /* AKAnimationController */ = {
+			isa = PBXGroup;
+			children = (
+				151E40511946F3EF005219AF /* AKAnimationController.h */,
+				151E40521946F3EF005219AF /* AKAnimationController.m */,
+				151E40531946F3F0005219AF /* AKModalAnimationController.h */,
+				151E40541946F3F0005219AF /* AKModalAnimationController.m */,
+				151E40551946F3F0005219AF /* AKNavigationAnimationController.h */,
+				151E40561946F3F0005219AF /* AKNavigationAnimationController.m */,
+				151E40571946F3F0005219AF /* AKTabAnimationController.h */,
+				151E40581946F3F0005219AF /* AKTabAnimationController.m */,
+			);
+			path = AKAnimationController;
+			sourceTree = "<group>";
+		};
+		151E40591946F3F0005219AF /* AKDynamicLoadHelper */ = {
+			isa = PBXGroup;
+			children = (
+				151E405A1946F3F0005219AF /* AKDynamicLoadHelper.h */,
+				151E405B1946F3F0005219AF /* AKDynamicLoadHelper.m */,
+			);
+			path = AKDynamicLoadHelper;
+			sourceTree = "<group>";
+		};
+		151E405C1946F3F0005219AF /* AKForkViewController */ = {
+			isa = PBXGroup;
+			children = (
+				151E405D1946F3F0005219AF /* AKForkViewController.h */,
+				151E405E1946F3F0005219AF /* AKForkViewController.m */,
+			);
+			path = AKForkViewController;
+			sourceTree = "<group>";
+		};
+		151E405F1946F3F0005219AF /* AKHighlightableCell */ = {
+			isa = PBXGroup;
+			children = (
+				151E40601946F3F0005219AF /* AKHighlightableCollectionCell.h */,
+				151E40611946F3F0005219AF /* AKHighlightableCollectionCell.m */,
+				151E40621946F3F0005219AF /* AKHighlightableTableCell.h */,
+				151E40631946F3F0005219AF /* AKHighlightableTableCell.m */,
+			);
+			path = AKHighlightableCell;
+			sourceTree = "<group>";
+		};
+		151E40641946F3F0005219AF /* AKInteractionController */ = {
+			isa = PBXGroup;
+			children = (
+				151E40651946F3F0005219AF /* AKInteractionController.h */,
+				151E40661946F3F0005219AF /* AKInteractionController.m */,
+				151E40671946F3F0005219AF /* AKModalInteractionController.h */,
+				151E40681946F3F0005219AF /* AKModalInteractionController.m */,
+				151E40691946F3F0005219AF /* AKTabInteractionController.h */,
+				151E406A1946F3F0005219AF /* AKTabInteractionController.m */,
+			);
+			path = AKInteractionController;
+			sourceTree = "<group>";
+		};
+		151E406B1946F3F0005219AF /* AKSimpleWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				151E406C1946F3F0005219AF /* AKSimpleWebViewController.h */,
+				151E406D1946F3F0005219AF /* AKSimpleWebViewController.m */,
+			);
+			path = AKSimpleWebViewController;
+			sourceTree = "<group>";
+		};
+		151E406E1946F3F0005219AF /* AKSwitchButton */ = {
+			isa = PBXGroup;
+			children = (
+				151E406F1946F3F0005219AF /* AKSwitchButton.h */,
+				151E40701946F3F0005219AF /* AKSwitchButton.m */,
+			);
+			path = AKSwitchButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +383,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151E407A1946F3F0005219AF /* AKInteractionController.m in Sources */,
+				151E40741946F3F0005219AF /* AKNavigationAnimationController.m in Sources */,
+				151E407C1946F3F0005219AF /* AKTabInteractionController.m in Sources */,
+				151E40761946F3F0005219AF /* AKDynamicLoadHelper.m in Sources */,
+				151E407D1946F3F0005219AF /* AKSimpleWebViewController.m in Sources */,
+				151E407E1946F3F0005219AF /* AKSwitchButton.m in Sources */,
+				151E40781946F3F0005219AF /* AKHighlightableCollectionCell.m in Sources */,
+				151E40731946F3F0005219AF /* AKModalAnimationController.m in Sources */,
+				151E407B1946F3F0005219AF /* AKModalInteractionController.m in Sources */,
+				151E40791946F3F0005219AF /* AKHighlightableTableCell.m in Sources */,
+				151E40751946F3F0005219AF /* AKTabAnimationController.m in Sources */,
 				151E40301946F2ED005219AF /* ViewController.m in Sources */,
 				151E40271946F2ED005219AF /* AppDelegate.m in Sources */,
+				151E40721946F3F0005219AF /* AKAnimationController.m in Sources */,
+				151E40771946F3F0005219AF /* AKForkViewController.m in Sources */,
 				151E40231946F2ED005219AF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +613,7 @@
 				151E404A1946F2ED005219AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		151E404B1946F2ED005219AF /* Build configuration list for PBXNativeTarget "AlkemyDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +622,7 @@
 				151E404D1946F2ED005219AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
