@@ -20,7 +20,7 @@
 {
     UIEdgeInsets insets = scrollView.contentInset;
     UIEdgeInsets newInsets
-    = UIEdgeInsetsMake(insets.top, insets.left, 100, insets.right);
+    = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom+100, insets.right);
     [scrollView setContentInset:newInsets];
     
     [indicator setCenter:CGPointMake(scrollView.contentSize.width/2,
@@ -36,7 +36,7 @@
     
     UIEdgeInsets insets = scrollView.contentInset;
     UIEdgeInsets newInsets
-    = UIEdgeInsetsMake(insets.top, insets.left, 0, insets.right);
+    = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom-100, insets.right);
     
     [UIView animateWithDuration:0.25
                           delay:0
