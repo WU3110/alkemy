@@ -25,7 +25,7 @@
         
         self.requiredTranslationRate = 0.5;
         self.requiredVelocity = 500;
-
+        
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
@@ -75,7 +75,7 @@
         }
     }
     
-    return YES;
+    return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
@@ -97,7 +97,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
             {
                 _scrollView.panGestureRecognizer.enabled = NO;
             }
-
+            
             [_viewController dismissViewControllerAnimated:YES
                                                 completion:nil];
             break;
@@ -112,7 +112,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
                 
                 if (rate >= 1.0) rate = 0.99;
                 if (rate < 0) rate = 0;
-
+                
                 [self updateInteractiveTransition:rate];
                 self.shouldComplete
                 = (rate > _requiredTranslationRate || vel > _requiredVelocity);
