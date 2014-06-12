@@ -44,6 +44,7 @@
 		151E40991946F480005219AF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E408E1946F480005219AF /* AFURLRequestSerialization.m */; };
 		151E409A1946F480005219AF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40901946F480005219AF /* AFURLResponseSerialization.m */; };
 		151E409B1946F480005219AF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 151E40921946F480005219AF /* AFURLSessionManager.m */; };
+		D9E7CA5419499F1E00E9B2C6 /* AKSimpleWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9E7CA5319499F1E00E9B2C6 /* AKSimpleWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		151E40901946F480005219AF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		151E40911946F480005219AF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		151E40921946F480005219AF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		D9E7CA5319499F1E00E9B2C6 /* AKSimpleWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKSimpleWebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			children = (
 				151E406C1946F3F0005219AF /* AKSimpleWebViewController.h */,
 				151E406D1946F3F0005219AF /* AKSimpleWebViewController.m */,
+				D9E7CA5319499F1E00E9B2C6 /* AKSimpleWebViewController.xib */,
 			);
 			path = AKSimpleWebViewController;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				151E402D1946F2ED005219AF /* Main_iPad.storyboard in Resources */,
+				D9E7CA5419499F1E00E9B2C6 /* AKSimpleWebViewController.xib in Resources */,
 				151E40321946F2ED005219AF /* Images.xcassets in Resources */,
 				151E402A1946F2ED005219AF /* Main_iPhone.storyboard in Resources */,
 				151E40211946F2ED005219AF /* InfoPlist.strings in Resources */,
