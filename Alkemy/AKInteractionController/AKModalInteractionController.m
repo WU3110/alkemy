@@ -56,6 +56,8 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
+    if (!self.isEnabled) return NO;
+
     if ([gestureRecognizer isEqual:_panGestureRecognizer])
     {
         if (gestureRecognizer.numberOfTouches == 0) return NO;
