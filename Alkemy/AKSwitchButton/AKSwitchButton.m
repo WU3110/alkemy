@@ -14,6 +14,11 @@ NS_ENUM(NSUInteger, ImageViewTag) {
     kOffStateImageViewTag
 };
 
+@interface AKSwitchButton ()
+@property (nonatomic, strong) UIImageView *onImageView;
+@property (nonatomic, strong) UIImageView *offImageView;
+@end
+
 @implementation AKSwitchButton
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -66,37 +71,38 @@ NS_ENUM(NSUInteger, ImageViewTag) {
              action:@selector(startSwitching:)
    forControlEvents:UIControlEventTouchUpInside];
 
-    UIImageView *onImageView
+    self.onImageView
     = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_onStateImageName]];
-    onImageView.tag = kOnStateImageViewTag;
-    UIImageView *offImageView
+    _onImageView.tag = kOnStateImageViewTag;
+    self.offImageView
     = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_offStateImageName]];
-    offImageView.tag = kOffStateImageViewTag;
+    _offImageView.tag = kOffStateImageViewTag;
     
-    [self addSubview:offImageView];
-    [self addSubview:onImageView];
-    if (!_isOn) onImageView.alpha = 0.f;
+    [self addSubview:_offImageView];
+    [self addSubview:_onImageView];
+    
+    _onImageView.alpha = self.isOn ? 1.f : 0.f;
+    _offImageView.alpha = self.isOn ? 0.f : 1.f;
 }
 
 - (void)startSwitching:(AKSwitchButton *)button
 {
-    CGFloat alpha = _isOn ? 0.f : 1.f;
-    UIImageView *onImageView = (UIImageView *)[self viewWithTag:kOnStateImageViewTag];
-    if (_switchAnimationDuration)
+    if (_switchAnimationEnabled)
     {
         [UIView animateWithDuration:_switchAnimationDuration
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             onImageView.alpha = alpha;
-                         } completion:^(BOOL finished) {
+                             _onImageView.alpha = self.isOn ? 1.f : 0.f;
+                             _offImageView.alpha = self.isOn ? 0.f : 1.f;                         } completion:^(BOOL finished) {
                              _isOn = !_isOn;
                          }];
 
     }
     else
     {
-        onImageView.alpha = 0.f;
+        _onImageView.alpha = self.isOn ? 1.f : 0.f;
+        _offImageView.alpha = self.isOn ? 0.f : 1.f;
         _isOn = !_isOn;
     }
 }
