@@ -60,18 +60,18 @@
     {
         if (gestureRecognizer.numberOfTouches == 0) return NO;
         
-        CGPoint translation = [_panGestureRecognizer velocityInView:_viewController.view];
+        CGPoint v = [_panGestureRecognizer velocityInView:_viewController.view];
         
         if (_scrollView)
         {
             if (_scrollView.contentOffset.y <= FLT_EPSILON)
             {
-                return fabs(translation.y) > fabs(translation.x);
+                return fabs(v.y) > fabs(v.x) && v.y > 0;
             }
         }
         else
         {
-            return fabs(translation.y) > fabs(translation.x);
+            return fabs(v.y) > fabs(v.x) && v.y > 0;
         }
     }
     
