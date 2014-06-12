@@ -93,16 +93,16 @@ NS_ENUM(NSUInteger, ImageViewTag) {
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             _onImageView.alpha = self.isOn ? 1.f : 0.f;
-                             _offImageView.alpha = self.isOn ? 0.f : 1.f;                         } completion:^(BOOL finished) {
+                             _onImageView.alpha = self.isOn ? 0.f : 1.f;
+                             _offImageView.alpha = self.isOn ? 1.f : 0.f;                         } completion:^(BOOL finished) {
                              _isOn = !_isOn;
                          }];
 
     }
     else
     {
-        _onImageView.alpha = self.isOn ? 1.f : 0.f;
-        _offImageView.alpha = self.isOn ? 0.f : 1.f;
+        _onImageView.alpha = self.isOn ? 0.f : 1.f;
+        _offImageView.alpha = self.isOn ? 1.f : 0.f;
         _isOn = !_isOn;
     }
 }
