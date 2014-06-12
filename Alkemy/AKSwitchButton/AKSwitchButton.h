@@ -26,4 +26,5 @@
 - (void)setupWithOnStateImageName:(NSString *)onStateImageName
                 offStateImageName:(NSString *)offStateImageName
                      initialState:(BOOL)isOn;
+- (void)switchState:(BOOL)isOn;
 @end

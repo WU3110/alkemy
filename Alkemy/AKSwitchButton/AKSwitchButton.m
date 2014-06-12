@@ -107,4 +107,10 @@ NS_ENUM(NSUInteger, ImageViewTag) {
     }
 }
 
+- (void)switchState:(BOOL)isOn
+{
+    _onImageView.alpha = self.isOn ? 0.f : 1.f;
+    _offImageView.alpha = self.isOn ? 1.f : 0.f;
+    _isOn = !_isOn;
+}
 @end
