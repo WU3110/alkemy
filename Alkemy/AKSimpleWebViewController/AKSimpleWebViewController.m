@@ -63,7 +63,14 @@
 
 - (void)_setup
 {
-    
+    self.navigationController.navigationItem.hidesBackButton = YES;
+}
+
+- (void)setupNavigationItems:(NSDictionary *)items
+{
+    self.navigationItem.leftBarButtonItem = items[@"Left"];
+    self.navigationItem.title = items[@"Title"];
+    self.navigationItem.rightBarButtonItem = items[@"Right"];
 }
 
 - (void)loadView
