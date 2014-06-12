@@ -11,6 +11,11 @@
 @interface AKSimpleWebViewController : UIViewController
 - (instancetype)initWithURLString:(NSString *)urlString;
 - (instancetype)initWithURL:(NSURL *)url;
+- (void)setupNavigationItems:(NSDictionary *)items;
+// the arg 'items'
+// 'Left' : LeftItem
+// 'Title' : TitleString
+// 'Right' : RightItem
 
 @property (nonatomic, strong) NSURL *url;
 

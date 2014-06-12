@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
+#import "AKSimpleWebViewController.h"
+
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *donebutton;
 
 @end
 
@@ -25,5 +28,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)action:(id)sender
+{
+    AKSimpleWebViewController *vc = [[AKSimpleWebViewController alloc] initWithURLString:@"http://www.heartlay-studio.co.jp"];
+    [vc setupNavigationItems:@{@"Left": _donebutton,
+                               @"Title": @"Web"}];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav
+                       animated:YES completion:nil];
+}
 
+- (IBAction)actionClose:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
 @end
