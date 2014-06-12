@@ -9,6 +9,7 @@
 #import "AKInteractionController.h"
 
 @interface AKModalInteractionController : AKInteractionController
+<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecognizer;
 

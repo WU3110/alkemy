@@ -29,10 +29,61 @@
         _panGestureRecognizer
         = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(onGestureRecognized:)];
+        _panGestureRecognizer.delegate = self;
+        _panGestureRecognizer.maximumNumberOfTouches = 1;
         [viewController.view addGestureRecognizer:_panGestureRecognizer];
-}
+    }
     return self;
 }
+
+- (void)cancelInteractiveTransition
+{
+    [super cancelInteractiveTransition];
+    if (_scrollView)
+    {
+        _scrollView.panGestureRecognizer.enabled = YES;
+    }
+}
+
+- (void)finishInteractiveTransition
+{
+    [super finishInteractiveTransition];
+    if (_scrollView)
+    {
+        _scrollView.panGestureRecognizer.enabled = YES;
+    }
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([gestureRecognizer isEqual:_panGestureRecognizer])
+    {
+        if (gestureRecognizer.numberOfTouches == 0) return NO;
+        
+        CGPoint translation = [_panGestureRecognizer velocityInView:_viewController.view];
+        
+        if (_scrollView)
+        {
+            if (_scrollView.contentOffset.y <= FLT_EPSILON)
+            {
+                return fabs(translation.y) > fabs(translation.x);
+            }
+        }
+        else
+        {
+            return fabs(translation.y) > fabs(translation.x);
+        }
+    }
+    
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
 
 - (void)onGestureRecognized:(UIGestureRecognizer *)recognizer
 {
@@ -42,6 +93,11 @@
         case UIGestureRecognizerStateBegan:
         {
             self.isActive = YES;
+            if (_scrollView)
+            {
+                _scrollView.panGestureRecognizer.enabled = NO;
+            }
+
             [_viewController dismissViewControllerAnimated:YES
                                                 completion:nil];
             break;
