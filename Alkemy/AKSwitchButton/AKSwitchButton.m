@@ -94,7 +94,8 @@ NS_ENUM(NSUInteger, ImageViewTag) {
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              _onImageView.alpha = self.isOn ? 0.f : 1.f;
-                             _offImageView.alpha = self.isOn ? 1.f : 0.f;                         } completion:^(BOOL finished) {
+                             _offImageView.alpha = self.isOn ? 1.f : 0.f;
+                         } completion:^(BOOL finished) {
                              _isOn = !_isOn;
                          }];
 
