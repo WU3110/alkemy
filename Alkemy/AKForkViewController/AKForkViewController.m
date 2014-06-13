@@ -21,15 +21,15 @@
         completion:(NSString *(^)(AFHTTPRequestOperation *operation, id responseObject))completion
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:urlString
-       parameters:parameters
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [self onComplete:completion(operation, responseObject)];
-          }
+    [manager GET:urlString
+      parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [self onComplete:completion(operation, responseObject)];
+         }
      
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [self onComplete:completion(operation, nil)];
-          }];
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [self onComplete:completion(operation, nil)];
+         }];
 }
 
 - (void)onComplete:(NSString *)segue
@@ -37,10 +37,10 @@
     if (segue != nil)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSegueWithIdentifier:segue
-                                      sender:nil];
+            [self performSegueWithIdentifier:segue sender:nil];
         });
     }
+    else NSLog(@"Need to pass segue identifier");
 }
 
 @end
