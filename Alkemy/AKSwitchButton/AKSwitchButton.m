@@ -46,11 +46,11 @@
     _animating = NO;
     _switchAnimationEnabled = YES;
     _switchAnimationDuration = 0.3f;
-
+    
     [self addTarget:self
              action:@selector(toggle)
    forControlEvents:UIControlEventTouchUpInside];
-
+    
 }
 
 - (void)setOnImage:(UIImage *)onImage
@@ -75,20 +75,20 @@
 {
     UIView *on = [self viewWithTag:ON_IMAGE_TAG];
     UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
-
+    
     if (_switchAnimationEnabled && _switchAnimationDuration > 0 && !_animating)
     {
         _animating = YES;
         on.alpha = (isOn)? 0 : 1;
         off.alpha = (isOn)? 1 : 0;
-
+        
         [UIView animateWithDuration:_switchAnimationDuration
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              on.alpha = (isOn)? 1 : 0;
                              off.alpha = (isOn)? 0 : 1;
-
+                             
                          } completion:^(BOOL finished) {
                              _isOn = isOn;
                              _animating = NO;
