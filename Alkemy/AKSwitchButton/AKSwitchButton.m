@@ -56,14 +56,22 @@
 - (void)setOnImage:(UIImage *)onImage
           offImage:(UIImage *)offImage
 {
-    UIImageView *on = [[UIImageView alloc] initWithImage:onImage];
-    UIImageView *off = [[UIImageView alloc] initWithImage:offImage];
+    UIView *on = [self viewWithTag:ON_IMAGE_TAG];
+    UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
+
+    if (on == nil)
+    {
+        on = [[UIImageView alloc] initWithImage:onImage];
+        on.tag = ON_IMAGE_TAG;
+        [self addSubview:on];
+    }
     
-    on.tag = ON_IMAGE_TAG;
-    off.tag = OFF_IMAGE_TAG;
-    
-    [self addSubview:on];
-    [self addSubview:off];
+    if (off == nil)
+    {
+        off = [[UIImageView alloc] initWithImage:offImage];
+        off.tag = OFF_IMAGE_TAG;
+        [self addSubview:off];
+    }
 }
 
 - (void)toggle
