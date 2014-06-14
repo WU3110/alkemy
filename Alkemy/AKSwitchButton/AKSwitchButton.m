@@ -58,12 +58,16 @@
 {
     UIView *on = [self viewWithTag:ON_IMAGE_TAG];
     UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
-
+    
     if (on == nil)
     {
         on = [[UIImageView alloc] initWithImage:onImage];
         on.tag = ON_IMAGE_TAG;
         [self addSubview:on];
+    }
+    else
+    {
+        [on removeFromSuperview];
     }
     
     if (off == nil)
@@ -71,6 +75,10 @@
         off = [[UIImageView alloc] initWithImage:offImage];
         off.tag = OFF_IMAGE_TAG;
         [self addSubview:off];
+    }
+    else
+    {
+        [on removeFromSuperview];
     }
 }
 
@@ -81,17 +89,12 @@
 
 - (void)setIsOn:(BOOL)isOn
 {
-    if (_isOn == isOn) return;
-    
     UIView *on = [self viewWithTag:ON_IMAGE_TAG];
     UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
     
     if (_switchAnimationEnabled && _switchAnimationDuration > 0 && !_animating)
     {
         _animating = YES;
-        on.alpha = (isOn)? 0 : 1;
-        off.alpha = (isOn)? 1 : 0;
-        
         [UIView animateWithDuration:_switchAnimationDuration
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseOut
