@@ -10,20 +10,15 @@
 
 @interface AKSwitchButton : UIButton
 
-@property (nonatomic, copy) NSString *onStateImageName;
-@property (nonatomic, copy) NSString *offStateImageName;
-
-// default is YES
+// default: YES
 @property (nonatomic, assign) BOOL switchAnimationEnabled;
-// default is 0.3f
+// default: 0.3f
 @property (nonatomic, assign) NSTimeInterval switchAnimationDuration;
 
-// default state is NO(off state)
-@property (nonatomic, assign, readonly) BOOL isOn;
+// default: NO
+@property (nonatomic, assign) BOOL isOn;
 
-// Need to call either following two methods
-- (void)setupWithInitialState:(BOOL)isOn;
-- (void)setupWithOnStateImageName:(NSString *)onStateImageName
-                offStateImageName:(NSString *)offStateImageName
-                     initialState:(BOOL)isOn;
+- (void)setOnImage:(UIImage *)onImage
+          offImage:(UIImage *)offImage;
+
 @end
