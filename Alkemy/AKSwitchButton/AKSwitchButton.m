@@ -73,6 +73,8 @@
 
 - (void)setIsOn:(BOOL)isOn
 {
+    if (_isOn == isOn) return;
+    
     UIView *on = [self viewWithTag:ON_IMAGE_TAG];
     UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
     
