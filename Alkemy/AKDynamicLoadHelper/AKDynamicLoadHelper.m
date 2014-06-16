@@ -115,51 +115,38 @@
                                  "__akdl_enabled",
                                  @YES,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
+        
         
         // inject watcher code into scrollViewDelegate.scrollVoewDidScroll
-        //  1. replace method if scrollViewDelegate does NOT have the method
-        //  2. add method if scrollViewDelegate does NOT have the method
-        if ([scrollViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)])
-        {
-            // replace methods
-
-            // svd.scrollViewDelegate -> svd.original_scrollViewDidScroll
-            Method original = class_getInstanceMethod([scrollViewDelegate class],
-                                                      @selector(scrollViewDidScroll:));
-            class_addMethod([scrollViewDelegate class],
-                            NSSelectorFromString(@"__akdl_original_scrollViewDidScroll:"),
-                            method_getImplementation(original),
-                            method_getTypeEncoding(original));
-
-            // akdl.akdl_watcher -> svd.akdl_watcher
-            Method watcher = class_getInstanceMethod([self class],
-                                                     @selector(akdl_watcher:));
-            class_addMethod([scrollViewDelegate class],
-                            NSSelectorFromString(@"akdl_watcher:"),
-                            watcher_imp,
-                            method_getTypeEncoding(watcher));
-
-            
-            // akdl.akdl_watcher_and_original_method -> svd.scrollViewDelegate
-            Method binded = class_getInstanceMethod([self class],
-                                                    @selector(akdl_watcher_and_original_method:));
-            class_replaceMethod([scrollViewDelegate class],
-                                NSSelectorFromString(@"scrollViewDidScroll:"),
-                                watcher_and_original_imp,
-                                method_getTypeEncoding(binded));
-        }
-        else
-        {
-            // akdl.akdl_watcher -> svd.akdl_watcher
-            Method watcher = class_getInstanceMethod([self class],
-                                                     @selector(akdl_watcher:));
-            class_addMethod([scrollViewDelegate class],
-                            NSSelectorFromString(@"scrollViewDidScroll:"),
-                            watcher_imp,
-                            method_getTypeEncoding(watcher));
-        }
+        NSAssert([scrollViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)],
+                 @"Please implement -(void)scrillViewDidScroll{}");
         
+        // replace methods
+        
+        // svd.scrollViewDelegate -> svd.original_scrollViewDidScroll
+        Method original = class_getInstanceMethod([scrollViewDelegate class],
+                                                  @selector(scrollViewDidScroll:));
+        class_addMethod([scrollViewDelegate class],
+                        NSSelectorFromString(@"__akdl_original_scrollViewDidScroll:"),
+                        method_getImplementation(original),
+                        method_getTypeEncoding(original));
+        
+        // akdl.akdl_watcher -> svd.akdl_watcher
+        Method watcher = class_getInstanceMethod([self class],
+                                                 @selector(akdl_watcher:));
+        class_addMethod([scrollViewDelegate class],
+                        NSSelectorFromString(@"akdl_watcher:"),
+                        watcher_imp,
+                        method_getTypeEncoding(watcher));
+        
+        
+        // akdl.akdl_watcher_and_original_method -> svd.scrollViewDelegate
+        Method binded_scrollview_did_scroll = class_getInstanceMethod([self class],
+                                                                      @selector(akdl_watcher_and_original_method:));
+        class_replaceMethod([scrollViewDelegate class],
+                            NSSelectorFromString(@"scrollViewDidScroll:"),
+                            watcher_and_original_imp,
+                            method_getTypeEncoding(binded_scrollview_did_scroll));
         
         // replace dynamicLoadDelegate.enableDynamicLoad
         // - make it possible to set enable = YES from user
@@ -179,59 +166,15 @@
                         method_getTypeEncoding(originalEnableDL));
         
         // replace method
-        Method binded = class_getInstanceMethod([self class],
-                                                @selector(akdl_enableDynamicLoad));
+        Method binded_enable_dynamicload = class_getInstanceMethod([self class],
+                                                                   @selector(akdl_enableDynamicLoad));
         class_replaceMethod([dynamicLoadDelegate class],
                             NSSelectorFromString(@"enableDynamicLoad"),
                             enable_dynamic_imp,
-                            method_getTypeEncoding(binded));
-
+                            method_getTypeEncoding(binded_enable_dynamicload));
+        
     }
 }
-
-
-//// watcher code
-//- (void)akdl_watcher:(UIScrollView *)scrollView
-//{
-//    CGFloat visibleBottom
-//    = scrollView.contentSize.height - scrollView.contentOffset.y - scrollView.frame.size.height;
-//
-//    BOOL enabled = [objc_getAssociatedObject(self, "__akdl_enabled") boolValue];
-//    CGFloat ignitionHeight = [objc_getAssociatedObject(self, "__akdl_ignition_height") floatValue];
-//    
-//    if (enabled
-//        && visibleBottom < ignitionHeight
-//        && 0 < scrollView.contentSize.height)
-//    {
-//        id <AKDynamicLoadDelegate> delegate
-//        = objc_getAssociatedObject(self, "__akdl_dynamic_load_delegate");
-//
-//        [delegate didReachIgnitionHeight];
-//        objc_setAssociatedObject(self,
-//                                 "__akdl_enabled",
-//                                 @NO,
-//                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    }
-//}
-//
-//- (void)akdl_watcher_and_original_method:(UIScrollView *)scrollView
-//{
-//    [self performSelector:@selector(akdl_watcher:) withObject:scrollView];
-//    [self performSelector:@selector(__akdl_original_scrollViewDidScroll:) withObject:scrollView];
-//}
-//
-//// enable code
-//- (void)akdl_enableDynamicLoad
-//{
-//    id <AKDynamicLoadDelegate> scrollViewDelegate
-//    = objc_getAssociatedObject(self, "__akdl_scroll_view_delegate");
-//
-//    objc_setAssociatedObject(scrollViewDelegate,
-//                             "__akdl_enabled",
-//                             @YES,
-//                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    [self performSelector:@selector(__akdl_original_enableDynamicLoad)];
-//}
 
 
 // dummy for escaping compiler warning
