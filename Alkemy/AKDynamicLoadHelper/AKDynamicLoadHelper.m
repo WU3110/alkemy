@@ -30,6 +30,7 @@
 }
 
 + (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView
+                     completion:(void (^)(BOOL))completion
 {
     UIView *v = [scrollView viewWithTag:INDICATOR_TAG];
     [v removeFromSuperview];
@@ -44,7 +45,7 @@
                      animations:^{
                          [scrollView setContentInset:newInsets];
                      }
-                     completion:nil];
+                     completion:completion];
 }
 
 # pragma mark dynamic load system
@@ -83,7 +84,7 @@
             [self performSelector:@selector(__akdl_original_scrollViewDidScroll:) withObject:scrollView];
         };
         // enable dynamic load
-        void (^enable_dynamic_code)(id, UIScrollView *) = ^(id self, UIScrollView *scrollView) {
+        void (^enable_dynamic_code)(id) = ^(id self) {
             id <AKDynamicLoadDelegate> scrollViewDelegate
             = objc_getAssociatedObject(self, "__akdl_scroll_view_delegate");
             
