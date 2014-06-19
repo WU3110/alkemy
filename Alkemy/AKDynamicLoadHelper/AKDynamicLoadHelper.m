@@ -24,20 +24,20 @@
     indicator.tag = INDICATOR_TAG;
     [scrollView addSubview:indicator];
     
-
+    
     UIEdgeInsets insets = scrollView.contentInset;
     UIEdgeInsets newInsets
     = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom+100, insets.right);
-
+    
     [UIView animateWithDuration:0.25
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [scrollView setContentInset:newInsets];
                      }
                      completion:^(BOOL finished) {
                      }];
-
+    
 }
 
 + (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView
@@ -92,9 +92,9 @@
             }
         };
         // watcher with original scrollViewDidScroll
-        void (^watcher_and_original_code)(id, UIScrollView *) = ^(id self, UIScrollView *scrollView) {
-            [self performSelector:@selector(akdl_watcher:) withObject:scrollView];
-            [self performSelector:@selector(__akdl_original_scrollViewDidScroll:) withObject:scrollView];
+        void (^watcher_and_original_code)(id, UIScrollView *, BOOL) = ^(id self, UIScrollView *scrollView, BOOL willDecelerate) {
+            [self performSelector:@selector(akdl_watcher:willDecelerate:) withObject:scrollView];
+            [self performSelector:@selector(__akdl_original_scrollViewDidEndDragging:willDecelerate:) withObject:scrollView];
         };
         // enable dynamic load
         void (^enable_dynamic_code)(id) = ^(id self) {
@@ -132,24 +132,24 @@
         
         
         // inject watcher code into scrollViewDelegate.scrollVoewDidScroll
-        NSAssert([scrollViewDelegate respondsToSelector:@selector(scrollViewDidScroll:)],
-                 @"Please implement -(void)scrillViewDidScroll{}");
+        NSAssert([scrollViewDelegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)],
+                 @"Please implement - (void)scrollViewDidEndDragging:willDecelerate:");
         
         // replace methods
         
         // svd.scrollViewDelegate -> svd.original_scrollViewDidScroll
         Method original = class_getInstanceMethod([scrollViewDelegate class],
-                                                  @selector(scrollViewDidScroll:));
+                                                  @selector(scrollViewDidEndDragging:willDecelerate:));
         class_addMethod([scrollViewDelegate class],
-                        NSSelectorFromString(@"__akdl_original_scrollViewDidScroll:"),
+                        NSSelectorFromString(@"__akdl_original_scrollViewDidEndDragging:willDecelerate:"),
                         method_getImplementation(original),
                         method_getTypeEncoding(original));
         
         // akdl.akdl_watcher -> svd.akdl_watcher
         Method watcher = class_getInstanceMethod([self class],
-                                                 @selector(akdl_watcher:));
+                                                 @selector(akdl_watcher:willDecelerate:));
         class_addMethod([scrollViewDelegate class],
-                        NSSelectorFromString(@"akdl_watcher:"),
+                        NSSelectorFromString(@"akdl_watcher:willDecelerate:"),
                         watcher_imp,
                         method_getTypeEncoding(watcher));
         
@@ -158,7 +158,7 @@
         Method binded_scrollview_did_scroll = class_getInstanceMethod([self class],
                                                                       @selector(akdl_watcher_and_original_method:));
         class_replaceMethod([scrollViewDelegate class],
-                            NSSelectorFromString(@"scrollViewDidScroll:"),
+                            NSSelectorFromString(@"scrollViewDidEndDragging:willDecelerate:"),
                             watcher_and_original_imp,
                             method_getTypeEncoding(binded_scrollview_did_scroll));
         
@@ -194,8 +194,11 @@
 // dummy for escaping compiler warning
 - (void)akdl_enableDynamicLoad{}
 - (void)akdl_watcher_and_original_method:(UIScrollView *)scrollView{}
-- (void)akdl_watcher:(UIScrollView *)scrollView{}
-- (void)__akdl_original_scrollViewDidScroll:(UIScrollView *)scrollView{}
+- (void)akdl_watcher:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{}
+
+- (void)__akdl_original_scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{}
 - (void)__akdl_original_enableDynamicLoad{}
 
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{}
+//
 @end
