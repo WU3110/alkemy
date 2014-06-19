@@ -32,9 +32,6 @@
 + (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView
                      completion:(void (^)(BOOL))completion
 {
-    UIView *v = [scrollView viewWithTag:INDICATOR_TAG];
-    [v removeFromSuperview];
-    
     UIEdgeInsets insets = scrollView.contentInset;
     UIEdgeInsets newInsets
     = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom-100, insets.right);
@@ -45,7 +42,12 @@
                      animations:^{
                          [scrollView setContentInset:newInsets];
                      }
-                     completion:completion];
+                     completion:^(BOOL finished) {
+                         UIView *v = [scrollView viewWithTag:INDICATOR_TAG];
+                         [v removeFromSuperview];
+                         
+                         completion(finished);
+                     }];
 }
 
 # pragma mark dynamic load system
