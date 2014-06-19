@@ -18,7 +18,6 @@
 + (void)showLoadingViewOnBottom:(UIScrollView *)scrollView
                       indicator:(UIView *)indicator
 {
-    
     [indicator setCenter:CGPointMake(scrollView.contentSize.width/2,
                                      scrollView.contentSize.height+50)];
     indicator.tag = INDICATOR_TAG;
