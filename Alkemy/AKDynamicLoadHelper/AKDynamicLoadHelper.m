@@ -18,15 +18,26 @@
 + (void)showLoadingViewOnBottom:(UIScrollView *)scrollView
                       indicator:(UIView *)indicator
 {
-    UIEdgeInsets insets = scrollView.contentInset;
-    UIEdgeInsets newInsets
-    = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom+100, insets.right);
-    [scrollView setContentInset:newInsets];
     
     [indicator setCenter:CGPointMake(scrollView.contentSize.width/2,
                                      scrollView.contentSize.height+50)];
     indicator.tag = INDICATOR_TAG;
     [scrollView addSubview:indicator];
+    
+
+    UIEdgeInsets insets = scrollView.contentInset;
+    UIEdgeInsets newInsets
+    = UIEdgeInsetsMake(insets.top, insets.left, insets.bottom+100, insets.right);
+
+    [UIView animateWithDuration:0.25
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [scrollView setContentInset:newInsets];
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+
 }
 
 + (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView
