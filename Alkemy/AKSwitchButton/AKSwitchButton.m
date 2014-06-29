@@ -9,14 +9,13 @@
 
 #import "AKSwitchButton.h"
 
-NS_ENUM(NSUInteger, ImageViewTag) {
-    kOnStateImageViewTag = 1000,
-    kOffStateImageViewTag
-};
+#define ON_IMAGE_TAG 91127
+#define OFF_IMAGE_TAG 91129
 
 @interface AKSwitchButton ()
-@property (nonatomic, strong) UIImageView *onImageView;
-@property (nonatomic, strong) UIImageView *offImageView;
+
+@property (nonatomic, assign) BOOL animating;
+
 @end
 
 @implementation AKSwitchButton
@@ -24,8 +23,9 @@ NS_ENUM(NSUInteger, ImageViewTag) {
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [self _setDefaultValues];
+    if (self)
+    {
+        [self prepare];
     }
     return self;
 }
@@ -33,85 +33,86 @@ NS_ENUM(NSUInteger, ImageViewTag) {
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self _setDefaultValues];
+    if (self)
+    {
+        [self prepare];
     }
     return self;
 }
 
-- (void)_setDefaultValues
+- (void)prepare
 {
     _isOn = NO;
+    _animating = NO;
     _switchAnimationEnabled = YES;
     _switchAnimationDuration = 0.3f;
-}
-
-- (void)setupWithInitialState:(BOOL)isOn
-{
-    _isOn = isOn;
     
-    [self _setup];
-}
-
-
-- (void)setupWithOnStateImageName:(NSString *)onStateImageName
-                offStateImageName:(NSString *)offStateImageName
-                     initialState:(BOOL)isOn
-{
-    self.onStateImageName = onStateImageName;
-    self.offStateImageName = offStateImageName;
-    _isOn = isOn;
-    
-    [self _setup];
-}
-
-- (void)_setup
-{
     [self addTarget:self
-             action:@selector(startSwitching:)
+             action:@selector(toggle)
    forControlEvents:UIControlEventTouchUpInside];
-
-    self.onImageView
-    = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_onStateImageName]];
-    _onImageView.tag = kOnStateImageViewTag;
-    self.offImageView
-    = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_offStateImageName]];
-    _offImageView.tag = kOffStateImageViewTag;
     
-    [self addSubview:_offImageView];
-    [self addSubview:_onImageView];
-    
-    _onImageView.alpha = self.isOn ? 1.f : 0.f;
-    _offImageView.alpha = self.isOn ? 0.f : 1.f;
 }
 
-- (void)startSwitching:(AKSwitchButton *)button
+- (void)setOnImage:(UIImage *)onImage
+          offImage:(UIImage *)offImage
 {
-    if (_switchAnimationEnabled)
+    UIView *on = [self viewWithTag:ON_IMAGE_TAG];
+    UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
+    
+    if (on == nil)
     {
+        on = [[UIImageView alloc] initWithImage:onImage];
+        on.tag = ON_IMAGE_TAG;
+        [self addSubview:on];
+    }
+    else
+    {
+        [on removeFromSuperview];
+    }
+    
+    if (off == nil)
+    {
+        off = [[UIImageView alloc] initWithImage:offImage];
+        off.tag = OFF_IMAGE_TAG;
+        [self addSubview:off];
+    }
+    else
+    {
+        [on removeFromSuperview];
+    }
+}
+
+- (void)toggle
+{
+    [self setIsOn:!_isOn];
+}
+
+- (void)setIsOn:(BOOL)isOn
+{
+    UIView *on = [self viewWithTag:ON_IMAGE_TAG];
+    UIView *off = [self viewWithTag:OFF_IMAGE_TAG];
+    
+    if (_switchAnimationEnabled && _switchAnimationDuration > 0 && !_animating)
+    {
+        _animating = YES;
         [UIView animateWithDuration:_switchAnimationDuration
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             _onImageView.alpha = self.isOn ? 0.f : 1.f;
-                             _offImageView.alpha = self.isOn ? 1.f : 0.f;
+                             on.alpha = (isOn)? 1 : 0;
+                             off.alpha = (isOn)? 0 : 1;
+                             
                          } completion:^(BOOL finished) {
-                             _isOn = !_isOn;
+                             _isOn = isOn;
+                             _animating = NO;
                          }];
-
     }
     else
     {
-        _onImageView.alpha = self.isOn ? 0.f : 1.f;
-        _offImageView.alpha = self.isOn ? 1.f : 0.f;
-        _isOn = !_isOn;
+        on.alpha = (isOn)? 1 : 0;
+        off.alpha = (isOn)? 0 : 1;
+        _isOn = isOn;
     }
 }
 
-- (void)switchState:(BOOL)isOn
-{
-    _onImageView.alpha = self.isOn ? 0.f : 1.f;
-    _offImageView.alpha = self.isOn ? 1.f : 0.f;
-    _isOn = !_isOn;
-}
 @end

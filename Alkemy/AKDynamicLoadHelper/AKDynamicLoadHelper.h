@@ -23,7 +23,8 @@
 
 + (void)showLoadingViewOnBottom:(UIScrollView *)scrollView
                       indicator:(UIView *)indicator;
-+ (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView;
++ (void)hideLoadingViewOnBottom:(UIScrollView *)scrollView
+                     completion:(void (^)(BOOL finished))completion;
 
 + (void)makeDynamicWithScrollViewDelegate:(id <UIScrollViewDelegate>)scrollViewDelegate
                                  delegate:(id <AKDynamicLoadDelegate>)dynamicLoadDelegate
