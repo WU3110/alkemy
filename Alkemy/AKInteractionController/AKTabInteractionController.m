@@ -79,7 +79,8 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 {
     UIPanGestureRecognizer *pgr = (UIPanGestureRecognizer *)recognizer;
     
-    switch (pgr.state) {
+    switch (pgr.state)
+    {
         case UIGestureRecognizerStateBegan:
         {
             self.isActive = YES;
@@ -130,7 +131,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
                     }
                 }
                 
-                CGFloat rate = fabs(translationX)/_tabBarController.view.frame.size.width;
+                CGFloat rate = fabs(translationX)*3/4/_tabBarController.view.frame.size.width;
                 
                 if (1.0 <= rate) rate = 0.99;
                 if (rate <= 0) rate = 0.01;
