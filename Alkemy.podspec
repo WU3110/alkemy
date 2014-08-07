@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Alkemy"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Alkemy enables to accelate your development afficiency."
   s.homepage     = "http://www.heartlay-studio.co.jp"
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
@@ -13,28 +13,29 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency "AFNetworking"
 
-  s.subspec 'AKAnimationController' do |a|
+  s.subspec "AKAnimationController" do |a|
     a.source_files = 'Alkemy/AKAnimationController/*.{h,m}'
   end
 
-  s.subspec 'AKDynamicLoadHelper' do |a|
+  s.subspec "AKDynamicLoadHelper" do |a|
     a.source_files = 'Alkemy/AKDynamicLoadHelper/*.{h,m}'
   end
 
-  s.subspec 'AKForkViewController do |a|
+  s.subspec "AKForkViewController" do |a|
     a.source_files = 'Alkemy/AKForkViewController/*.{h,m}'
+    a.dependency "AFNetworking"
   end
 
-  s.subspec 'AKInteractionConroller' do |a|
+  s.subspec "AKInteractionConroller" do |a|
     a.source_files = 'Alkemy/AKInteractionController/*.{h,m}'
   end
 
-  s.subspec 'AKSimpleWebViewController' do |a|
+  s.subspec "AKSimpleWebViewController" do |a|
     a.source_files = 'Alkemy/AKSimpleWebViewController/*.{h,m}'
     a.resources = 'Alkemy/AkSimpleWebViewController/*.xib'
   end
 
-  s.subspec 'AKSwitchButton' do |a|
+  s.subspec "AKSwitchButton" do |a|
     a.source_files = 'Alkemy/AKSwitchButton/*.{h, m}'
   end
 
