@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Alkemy"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Alkemy enables to accelate your development afficiency."
   s.homepage     = "http://www.heartlay-studio.co.jp"
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
