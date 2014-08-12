@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.resources    = 'Alkemy/**/*.xib'
   s.exclude_files = "Alkemy/Exclude"
   s.requires_arc = true
-  s.dependency "AFNetworking"
 
   s.subspec "AKAnimationController" do |a|
     a.source_files = 'Alkemy/AKAnimationController/*.{h,m}'
